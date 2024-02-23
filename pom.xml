@@ -4,7 +4,7 @@
 
     <groupId>io.github.iharsuvorau</groupId>
     <artifactId>layeredgraphlayout</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
 
     <scm>
         <url>https://github.com/iharsuvorau/layeredgraphlayout</url>
@@ -41,20 +41,6 @@
                     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
