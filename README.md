@@ -1,4 +1,20 @@
-# README
+# Layered Graph Layouts
+
+Library for layered graph layouts of directed (ideally acyclic) graphs. This is a fork of the original library at https://github.com/jfschaefer/layeredgraphlayout.
+
+Use it with Maven:
+
+```xml
+<dependency>
+    <groupId>io.github.iharsuvorau</groupId>
+    <artifactId>layeredgraphlayout</artifactId>
+    <version>1.0.2</version>
+</dependency>
+```
+
+---
+
+# Original README
 
 This library was developed as a tool for displaying directed graphs in a computer linguistic project.
 It uses layered graph layouts, where the nodes are arranged in layers in a way that all the edges are

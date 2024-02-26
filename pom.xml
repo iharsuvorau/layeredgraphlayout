@@ -6,11 +6,45 @@
     <artifactId>layeredgraphlayout</artifactId>
     <version>1.0.2</version>
 
+    <name>Layered Graph Layouts</name>
+    <url>https://github.com/iharsuvorau/layeredgraphlayout</url>
+    <description>
+        Library for layered graph layouts of directed (ideally acyclic) graphs. A fork of the original library at https://github.com/jfschaefer/layeredgraphlayout.
+    </description>
+    <developers>
+        <developer>
+            <id>jfschaefer</id>
+            <name>Jan Frederik Schaefer</name>
+            <url>https://kwarc.info/people/jfschaefer/</url>
+        </developer>
+        <developer>
+            <id>ihr</id>
+            <name>Ihar Suvorau</name>
+            <email>ihar.suvorau@gmail.com</email>
+            <url>https://github.com/iharsuvorau</url>
+            <organization>University of Tartu</organization>
+        </developer>
+    </developers>
+
     <scm>
         <url>https://github.com/iharsuvorau/layeredgraphlayout</url>
         <developerConnection>scm:git:https://github.com/iharsuvorau/layeredgraphlayout
         </developerConnection>
     </scm>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <dependencies>
         <dependency>
@@ -28,4 +62,65 @@
             <url>https://maven.pkg.github.com/iharsuvorau/layeredgraphlayout</url>
         </repository>
     </distributionManagement>
+
+    <profiles>
+        <profile>
+            <id>ossrh</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.7</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.9.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
